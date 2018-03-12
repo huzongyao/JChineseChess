@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ChineseChess</string>
+    <string name="now_loading">Loading, Please Wait…</string>
+    <string name="load_book_failed">Load Book Failed!</string>
+    <string name="congratulations_you_win">Congratulations, You Win！</string>
+    <string name="you_lose_and_try_again">You Lost, Please Try Again！</string>
+    <string name="play_too_long_as_lose">长打作负，请不要气馁！</string>
+    <string name="pc_play_too_long_as_lose">电脑长打作负，祝贺你取得胜利！</string>
+    <string name="standoff_as_draw">双方不变作和，辛苦了！</string>
+    <string name="both_too_long_as_draw">超过自然限着作和，辛苦了！</string>
+</resources>

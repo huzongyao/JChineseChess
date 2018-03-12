@@ -13,6 +13,7 @@ This is a very simple Chinese chess game just for fun!
 * 涉及知识有自定义View，音频播放等
 
 #### screenshot
+![screenshot](https://github.com/huzongyao/JChineseChess/blob/master/misc/screen.gif?raw=true)
 
 ### About Me
  * GitHub: [http://huzongyao.github.io/](http://huzongyao.github.io/)

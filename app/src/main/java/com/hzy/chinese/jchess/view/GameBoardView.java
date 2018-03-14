@@ -23,12 +23,10 @@ import com.hzy.chinese.jchess.xqwlight.Position;
 
 public class GameBoardView extends View implements IGameView {
 
-    public static final int PIECE_THEME_CARTOON = 1;
-    public static final int PIECE_THEME_WOOD = 2;
 
     private static final int WIDTH_CELL_COUNT = 9;
     private static final int HEIGHT_CELL_COUNT = 10;
-    private int mPieceTheme = PIECE_THEME_CARTOON;
+    private int mPieceTheme = GameConfig.PIECE_THEME_CARTOON;
 
     private float mCellWidth;
     private Bitmap[] mPiecesBitmap;
@@ -69,13 +67,23 @@ public class GameBoardView extends View implements IGameView {
         return mGameLogic;
     }
 
+    public void setPieceTheme(int theme) {
+        if (theme == mPieceTheme)
+            return;
+        mPieceTheme = theme;
+        loadBitmapResources();
+    }
+
     private void loadBitmapResources() {
         int[] pieceResArray = GameConfig.PIECE_RES_CARTOON;
-        if (mPieceTheme == PIECE_THEME_WOOD) {
+        if (mPieceTheme == GameConfig.PIECE_THEME_WOOD) {
             pieceResArray = GameConfig.PIECE_RES_WOOD;
         }
         mPiecesBitmap = new Bitmap[pieceResArray.length];
         for (int i = 0; i < pieceResArray.length; i++) {
+            if (mPiecesBitmap[i] != null && !mPiecesBitmap[i].isRecycled()) {
+                mPiecesBitmap[i].recycle();
+            }
             mPiecesBitmap[i] = BitmapFactory.decodeResource(getResources(), pieceResArray[i]);
         }
     }

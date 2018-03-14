@@ -11,6 +11,7 @@ public class GameConfig {
     public static final String DAT_ASSETS_PATH = "book.dat";
     public static final int SPLASH_DELAY_MILLISECONDS = 500;
     public static final int MAX_HISTORY_SIZE = 512;
+    public static final String PREF_LAST_FEN = "PREF_LAST_FEN";
 
     public static final int RESP_CLICK = 0;
     public static final int RESP_ILLEGAL = 1;
@@ -23,6 +24,9 @@ public class GameConfig {
     public static final int RESP_WIN = 8;
     public static final int RESP_DRAW = 9;
     public static final int RESP_LOSS = 10;
+
+    public static final int PIECE_THEME_CARTOON = 0;
+    public static final int PIECE_THEME_WOOD = 1;
 
     public static final int[] SOUND_RES_ARRAY = {
             R.raw.click, R.raw.illegal, R.raw.move,

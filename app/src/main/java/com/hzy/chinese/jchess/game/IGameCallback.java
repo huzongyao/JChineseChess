@@ -10,4 +10,8 @@ public interface IGameCallback {
     void postShowMessage(String message);
 
     void postShowMessage(int messageId);
+
+    void postStartThink();
+
+    void postEndThink();
 }

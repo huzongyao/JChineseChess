@@ -1,4 +1,10 @@
 <resources>
+    <string name="pref_sound_key" translatable="false">switch_sound</string>
+    <string name="pref_handicap_key" translatable="false">list_handicap</string>
+    <string name="pref_level_key" translatable="false">list_computer_power</string>
+    <string name="pref_who_first_key" translatable="false">switch_computer_first</string>
+    <string name="pref_piece_style_key" translatable="false">list_chess_style</string>
+
     <string name="app_name">ChineseChess</string>
     <string name="now_loading">Loading, Please Wait…</string>
     <string name="load_book_failed">Load Book Failed!</string>
@@ -8,4 +14,17 @@
     <string name="pc_play_too_long_as_lose">电脑长打作负，祝贺你取得胜利！</string>
     <string name="standoff_as_draw">双方不变作和，辛苦了！</string>
     <string name="both_too_long_as_draw">超过自然限着作和，辛苦了！</string>
+    <string name="pref_sound_summary">是否启用音效</string>
+    <string name="pref_sound_title">音效</string>
+    <string name="pref_handicap_title">先走让子</string>
+    <string name="pref_handicap_summary">选择先走的一方是否让子:%s</string>
+    <string name="pref_level_title">电脑棋力</string>
+    <string name="pref_level_summary">电脑棋力的级别:%s</string>
+    <string name="pref_who_first_summary">是否让电脑先走</string>
+    <string name="pref_who_first_title">电脑先走</string>
+    <string name="pref_piece_title">棋子样式</string>
+    <string name="pref_piece_style_summary">棋子在棋盘中的样式:%s</string>
+    <string name="game_settings">游戏设置</string>
+    <string name="new_game_started">已重新开始新游戏！</string>
+    <string name="load_last_game_finish">已载入上次的棋局！</string>
 </resources>

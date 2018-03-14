@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="open_board_types">
+        <item>不让子</item>
+        <item>让左马</item>
+        <item>让双马</item>
+        <item>让九子</item>
+    </string-array>
+    <string-array name="computer_ai_level">
+        <item>入门</item>
+        <item>业余</item>
+        <item>专业</item>
+        <item>大师</item>
+        <item>特级大师</item>
+    </string-array>
+    <string-array name="layout_piece_style">
+        <item>卡通</item>
+        <item>木纹</item>
+    </string-array>
+
+    <string-array name="open_board_types_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="computer_ai_level_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="layout_piece_style_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="@string/pref_sound_key"
+        android:summary="@string/pref_sound_summary"
+        android:title="@string/pref_sound_title" />
+    <ListPreference
+        android:defaultValue="0"
+        android:dialogTitle="@string/pref_handicap_title"
+        android:entries="@array/open_board_types"
+        android:entryValues="@array/open_board_types_value"
+        android:key="@string/pref_handicap_key"
+        android:summary="@string/pref_handicap_summary"
+        android:title="@string/pref_handicap_title" />
+    <ListPreference
+        android:defaultValue="0"
+        android:dialogTitle="@string/pref_level_title"
+        android:entries="@array/computer_ai_level"
+        android:entryValues="@array/computer_ai_level_value"
+        android:key="@string/pref_level_key"
+        android:summary="@string/pref_level_summary"
+        android:title="@string/pref_level_title" />
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="@string/pref_who_first_key"
+        android:summary="@string/pref_who_first_summary"
+        android:title="@string/pref_who_first_title" />
+    <ListPreference
+        android:defaultValue="0"
+        android:dialogTitle="@string/pref_piece_title"
+        android:entries="@array/layout_piece_style"
+        android:entryValues="@array/layout_piece_style_value"
+        android:key="@string/pref_piece_style_key"
+        android:summary="@string/pref_piece_style_summary"
+        android:title="@string/pref_piece_title" />
+</PreferenceScreen>

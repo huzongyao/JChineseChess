@@ -70,6 +70,10 @@ public class GameLogic {
         }
     }
 
+    public String getCurrentFen() {
+        return currentFen;
+    }
+
     public void restart() {
         restart(false, 0);
     }
@@ -108,6 +112,8 @@ public class GameLogic {
         sqSelected = mvLast = 0;
         if (flipped && pos.sdPlayer == 0) {
             thinking();
+        } else {
+            mGameView.postRepaint();
         }
     }
 
@@ -189,6 +195,7 @@ public class GameLogic {
         thinking = true;
         new Thread() {
             public void run() {
+                mGameCallback.postStartThink();
                 int mv = mvLast;
                 mvLast = search.searchMain(100 << (level << 1));
                 pos.makeMove(mvLast);
@@ -201,6 +208,7 @@ public class GameLogic {
                 }
                 getResult(response);
                 thinking = false;
+                mGameCallback.postEndThink();
                 mGameView.postRepaint();
             }
         }.start();

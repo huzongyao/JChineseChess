@@ -397,17 +397,13 @@ public class Search {
         return true;
     }
 
-    public int searchMain(int millis) {
-        return searchMain(LIMIT_DEPTH, millis);
-    }
-
-    public int searchMain(int depth, int millis) {
+    public void prepareSearch() {
         mvResult = pos.bookMove();
         if (mvResult > 0) {
             pos.makeMove(mvResult);
             if (pos.repStatus(3) == 0) {
                 pos.undoMakeMove();
-                return mvResult;
+                return;
             }
             pos.undoMakeMove();
         }
@@ -426,8 +422,11 @@ public class Search {
         mvResult = 0;
         allNodes = 0;
         pos.distance = 0;
+    }
+
+    public int searchMain(int millis) {
         long t = System.currentTimeMillis();
-        for (int i = 1; i <= depth; i++) {
+        for (int i = 1; i <= LIMIT_DEPTH; i++) {
             int vl = searchRoot(i);
             allMillis = (int) (System.currentTimeMillis() - t);
             if (allMillis > millis) {

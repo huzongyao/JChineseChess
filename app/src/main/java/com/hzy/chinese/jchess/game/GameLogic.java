@@ -33,6 +33,7 @@ public class GameLogic {
     private Search search = new Search(pos, 16);
     private Deque<String> mHistoryList = new ArrayDeque<>();
     private IGameCallback mGameCallback;
+    private volatile boolean mDrawBoardFinish;
 
     public GameLogic(IGameView gameView) {
         this(gameView, null);
@@ -68,6 +69,7 @@ public class GameLogic {
                 }
             }
         }
+        mDrawBoardFinish = true;
     }
 
     public String getCurrentFen() {
@@ -114,6 +116,22 @@ public class GameLogic {
             thinking();
         } else {
             mGameView.postRepaint();
+        }
+    }
+
+    /**
+     * Do not call this function in main thread
+     * it will block the process util UI updated
+     */
+    private void blockRepaint() {
+        mDrawBoardFinish = false;
+        mGameView.postRepaint();
+        while (!mDrawBoardFinish) {
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -169,8 +187,8 @@ public class GameLogic {
     }
 
     private void drawMove(int mv) {
-        drawSquare(Position.SRC(mv));
-        drawSquare(Position.DST(mv));
+        //drawSquare(Position.SRC(mv));
+        //drawSquare(Position.DST(mv));
     }
 
     private void playSound(int response) {
@@ -197,7 +215,9 @@ public class GameLogic {
             public void run() {
                 mGameCallback.postStartThink();
                 int mv = mvLast;
-                mvLast = search.searchMain(100 << (level << 1));
+                search.prepareSearch();
+                blockRepaint();
+                mvLast = search.searchMain(100 << level);
                 pos.makeMove(mvLast);
                 drawMove(mv);
                 drawMove(mvLast);
@@ -208,8 +228,8 @@ public class GameLogic {
                 }
                 getResult(response);
                 thinking = false;
-                mGameCallback.postEndThink();
                 mGameView.postRepaint();
+                mGameCallback.postEndThink();
             }
         }.start();
     }

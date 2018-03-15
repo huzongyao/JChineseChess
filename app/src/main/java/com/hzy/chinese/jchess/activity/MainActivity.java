@@ -10,6 +10,8 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.blankj.utilcode.util.SnackbarUtils;
 import com.blankj.utilcode.util.StringUtils;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity
 
     @BindView(R.id.game_board)
     GameBoardView mGameBoard;
+    @BindView(R.id.game_progress)
+    ProgressBar mGameProgress;
     private SoundPool mSoundPool;
     private LinkedList<Integer> mSoundList;
     private GameLogic mGameLogic;
@@ -159,11 +163,21 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void postStartThink() {
-
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mGameProgress.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     @Override
     public void postEndThink() {
-
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mGameProgress.setVisibility(View.GONE);
+            }
+        });
     }
 }

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="open_board_types">
+    <string-array name="open_board_types">
         <item>不让子</item>
         <item>让左马</item>
         <item>让双马</item>
         <item>让九子</item>
-    </array>
-    <array name="computer_ai_level">
+    </string-array>
+    <string-array name="computer_ai_level">
         <item>入门</item>
         <item>业余</item>
         <item>专业</item>
         <item>大师</item>
         <item>特级大师</item>
-    </array>
-    <array name="layout_piece_style">
+    </string-array>
+    <string-array name="layout_piece_style">
         <item>卡通</item>
         <item>木纹</item>
-    </array>
+    </string-array>
 </resources>

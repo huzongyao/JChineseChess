@@ -18,20 +18,20 @@
         <item>Wood</item>
     </string-array>
 
-    <string-array name="open_board_types_value">
+    <string-array name="open_board_types_value" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
     </string-array>
-    <string-array name="computer_ai_level_value">
+    <string-array name="computer_ai_level_value" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
     </string-array>
-    <string-array name="layout_piece_style_value">
+    <string-array name="layout_piece_style_value" translatable="false">
         <item>0</item>
         <item>1</item>
     </string-array>

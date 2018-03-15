@@ -277,7 +277,7 @@ public class GameLogic {
 
     private String popHistory() {
         if (mHistoryList.size() == 0) {
-            showMessage("没有更多历史记录了！");
+            showMessage(R.string.no_more_histories);
         }
         return mHistoryList.pollLast();
     }

@@ -21,4 +21,5 @@
     <string name="game_settings">游戏设置</string>
     <string name="new_game_started">已重新开始新游戏！</string>
     <string name="load_last_game_finish">已载入上次的棋局！</string>
+    <string name="no_more_histories">没有更多历史记录了！</string>
 </resources>

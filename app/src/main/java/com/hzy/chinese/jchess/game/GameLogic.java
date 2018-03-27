@@ -278,7 +278,10 @@ public class GameLogic {
     private String popHistory() {
         if (mHistoryList.size() == 0) {
             showMessage(R.string.no_more_histories);
+            playSound(RESP_ILLEGAL);
+            return null;
         }
+        playSound(RESP_MOVE2);
         return mHistoryList.pollLast();
     }
 }

@@ -4,18 +4,22 @@
 
     <item
         android:id="@+id/main_menu_retract"
-        android:title="悔棋"
+        android:title="@string/menu_retract"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/main_menu_restart"
-        android:title="重开"
+        android:title="@string/menu_restart"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/main_menu_settings"
-        android:title="设置"
+        android:title="@string/menu_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/main_menu_about"
+        android:title="@string/menu_about"
         app:showAsAction="never" />
     <item
         android:id="@+id/main_menu_exit"
-        android:title="退出"
+        android:title="@string/menu_exit"
         app:showAsAction="never" />
 </menu>

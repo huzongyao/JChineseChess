@@ -76,6 +76,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.main_menu_settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 break;
+            case R.id.main_menu_about:
+                startActivity(new Intent(this, AboutActivity.class));
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -22,4 +22,14 @@
     <string name="new_game_started">已重新开始新游戏！</string>
     <string name="load_last_game_finish">已载入上次的棋局！</string>
     <string name="no_more_histories">没有更多历史记录了！</string>
+    <string name="menu_retract">悔棋</string>
+    <string name="menu_restart">重开</string>
+    <string name="menu_settings">设置</string>
+    <string name="menu_exit">退出</string>
+    <string name="menu_about">关于</string>
+    <string name="version_info">版本信息</string>
+    <string name="source_code">源码地址</string>
+    <string name="j_chinese_chess">JChineseChess</string>
+    <string name="my_github">我的GitHub</string>
+    <string name="web_view_refresh">刷新</string>
 </resources>

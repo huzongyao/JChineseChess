@@ -15,8 +15,8 @@ android {
         applicationId "com.hzy.chinese.jchess"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 4
+        versionName "1.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -33,6 +33,13 @@ android {
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def fileName = project.name + '-' + variant.name + '-V' +
+                    defaultConfig.versionCode + ".apk"
+            outputFileName = fileName
+        }
     }
 }
 

@@ -175,7 +175,8 @@ public class WebViewActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         if (mWebViewWeb != null) {
-            mWebViewWeb.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+            mWebViewWeb.loadDataWithBaseURL(null, "",
+                    "text/html", "utf-8", null);
             mWebViewWeb.clearHistory();
             mWebViewWeb.destroy();
         }

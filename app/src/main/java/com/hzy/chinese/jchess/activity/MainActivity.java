@@ -146,12 +146,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void postShowMessage(final String message) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                showMessage(message);
-            }
-        });
+        runOnUiThread(() -> showMessage(message));
     }
 
     private void showMessage(String message) {
@@ -166,21 +161,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void postStartThink() {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mGameProgress.setVisibility(View.VISIBLE);
-            }
-        });
+        runOnUiThread(() -> mGameProgress.setVisibility(View.VISIBLE));
     }
 
     @Override
     public void postEndThink() {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mGameProgress.setVisibility(View.GONE);
-            }
-        });
+        runOnUiThread(() -> mGameProgress.setVisibility(View.GONE));
     }
 }

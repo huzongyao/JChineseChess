@@ -8,6 +8,7 @@ This is a very simple Chinese chess game just for fun!
 * https://github.com/xqbase/xqwlight
 
 #### 详情
+* 一个小游戏程序，其实就是一个自定义View
 * 程序实现了游戏规则和AI，以及历史记录，悔棋。
 * 主要逻辑都来自于xqwlight
 * 涉及知识有自定义View，音频播放等

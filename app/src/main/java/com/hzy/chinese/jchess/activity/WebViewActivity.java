@@ -95,15 +95,11 @@ public class WebViewActivity extends AppCompatActivity {
     }
 
     private DownloadListener getDownloadListener() {
-        return new DownloadListener() {
-            @Override
-            public void onDownloadStart(String url, String userAgent, String contentDisposition,
-                                        String mimetype, long contentLength) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse(url));
-                startActivity(intent);
-            }
+        return (url, userAgent, contentDisposition, mimetype, contentLength) -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
         };
     }
 

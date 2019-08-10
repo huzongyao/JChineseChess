@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity
         mGameLogic.setCallback(this);
         mGameLogic.setLevel(mAILevel);
         mGameBoard.setPieceTheme(mPieceStyle);
+        // load last saved game
         String lastFen = mPreference.getString(GameConfig.PREF_LAST_FEN, "");
         if (StringUtils.isEmpty(lastFen)) {
             mGameLogic.restart(mComputerFlip, mHandicapIndex);

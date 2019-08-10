@@ -36,6 +36,7 @@ public class SplashActivity extends Activity {
             @Override
             public void run() {
                 try {
+                    // do some loading job
                     InputStream is = getAssets().open(GameConfig.DAT_ASSETS_PATH);
                     Position.loadBook(is);
                     mDataLoaded = true;

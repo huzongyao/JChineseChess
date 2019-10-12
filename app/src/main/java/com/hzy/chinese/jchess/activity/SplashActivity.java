@@ -43,7 +43,7 @@ public class SplashActivity extends Activity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                startGame();
+                runOnUiThread(() -> startGame());
             }
         }.start();
     }

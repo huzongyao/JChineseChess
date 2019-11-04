@@ -3,7 +3,6 @@ package com.hzy.chinese.jchess.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
 import com.blankj.utilcode.util.ActivityUtils;
 import com.hzy.chinese.jchess.R;
@@ -21,7 +20,7 @@ public class SplashActivity extends Activity {
     private static boolean mDataLoaded = false;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         if (mDataLoaded) {

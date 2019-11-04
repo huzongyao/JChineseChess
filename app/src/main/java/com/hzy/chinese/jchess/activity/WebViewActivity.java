@@ -5,9 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +14,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.StringUtils;
@@ -32,6 +32,10 @@ import butterknife.ButterKnife;
 public class WebViewActivity extends AppCompatActivity {
 
     public static final String WEB_VIEW_URL = "WEB_VIEW_URL";
+    @BindView(R.id.web_view_web)
+    WebView mWebViewWeb;
+    @BindView(R.id.web_view_progress)
+    ProgressBar mWebViewProgress;
 
     public static void startUrl(Context context, String url) {
         Intent intent = new Intent(context, WebViewActivity.class);
@@ -39,13 +43,8 @@ public class WebViewActivity extends AppCompatActivity {
         context.startActivity(intent);
     }
 
-    @BindView(R.id.web_view_web)
-    WebView mWebViewWeb;
-    @BindView(R.id.web_view_progress)
-    ProgressBar mWebViewProgress;
-
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         String mInitUrl = intent.getStringExtra(WEB_VIEW_URL);

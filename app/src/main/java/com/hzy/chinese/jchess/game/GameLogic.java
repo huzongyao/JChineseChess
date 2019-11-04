@@ -1,6 +1,5 @@
 package com.hzy.chinese.jchess.game;
 
-import android.support.annotation.NonNull;
 
 import com.hzy.chinese.jchess.R;
 import com.hzy.chinese.jchess.xqwlight.Position;
@@ -8,6 +7,8 @@ import com.hzy.chinese.jchess.xqwlight.Search;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static com.hzy.chinese.jchess.game.GameConfig.RESP_CAPTURE;
 import static com.hzy.chinese.jchess.game.GameConfig.RESP_CAPTURE2;
@@ -21,8 +22,9 @@ import static com.hzy.chinese.jchess.game.GameConfig.RESP_MOVE;
 import static com.hzy.chinese.jchess.game.GameConfig.RESP_MOVE2;
 import static com.hzy.chinese.jchess.game.GameConfig.RESP_WIN;
 
-public class GameLogic {
+public class GameLogic implements Runnable {
 
+    private final ExecutorService mExecutor;
     private IGameView mGameView;
     private String currentFen;
     private int sqSelected, mvLast;
@@ -39,9 +41,10 @@ public class GameLogic {
         this(gameView, null);
     }
 
-    public GameLogic(@NonNull IGameView gameView, IGameCallback callback) {
+    public GameLogic(IGameView gameView, IGameCallback callback) {
         mGameCallback = callback;
         mGameView = gameView;
+        mExecutor = Executors.newSingleThreadExecutor();
     }
 
     public void setLevel(int level) {
@@ -209,29 +212,30 @@ public class GameLogic {
         }
     }
 
-    private void thinking() {
+    @Override
+    public void run() {
         thinking = true;
-        new Thread() {
-            public void run() {
-                mGameCallback.postStartThink();
-                int mv = mvLast;
-                search.prepareSearch();
-                blockRepaint();
-                mvLast = search.searchMain(100 << level);
-                pos.makeMove(mvLast);
-                drawMove(mv);
-                drawMove(mvLast);
-                int response = pos.inCheck() ? RESP_CHECK2 :
-                        pos.captured() ? RESP_CAPTURE2 : RESP_MOVE2;
-                if (pos.captured()) {
-                    pos.setIrrev();
-                }
-                getResult(response);
-                thinking = false;
-                mGameView.postRepaint();
-                mGameCallback.postEndThink();
-            }
-        }.start();
+        mGameCallback.postStartThink();
+        int mv = mvLast;
+        search.prepareSearch();
+        blockRepaint();
+        mvLast = search.searchMain(100 << level);
+        pos.makeMove(mvLast);
+        drawMove(mv);
+        drawMove(mvLast);
+        int response = pos.inCheck() ? RESP_CHECK2 :
+                pos.captured() ? RESP_CAPTURE2 : RESP_MOVE2;
+        if (pos.captured()) {
+            pos.setIrrev();
+        }
+        getResult(response);
+        thinking = false;
+        mGameView.postRepaint();
+        mGameCallback.postEndThink();
+    }
+
+    private void thinking() {
+        mExecutor.submit(this);
     }
 
     private boolean getResult() {
